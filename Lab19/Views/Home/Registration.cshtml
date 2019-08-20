@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Registration";
+}
+
+@model Lab19.Models.User
+
+@Html.ValidationSummary()
+    <form action="/Home/Registration" method="post" class="btn-dark">
+        <div class="col-12">
+            FirstName:
+            <input type="text" name="FirstName" value="@Model.FirstName" placeholder="@Model.FirstName" class="col-5" />
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="col-12">
+            LastName:
+            <input type="text" name="LastName" value="@Model.LastName" placeholder="@Model.LastName" class="col-5" />
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="col-12">
+            Birthdate:
+            <input type="datetime" name="Birthdate" value="@Model.Birthday" placeholder="@Model.Birthday" />
+            @Html.ValidationMessageFor(m => m.Birthday)
+        </div>
+        <div class="col-12">
+            PhoneNumber:
+            <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" placeholder="@Model.PhoneNumber" />
+            @Html.ValidationMessageFor(m => m.PhoneNumber)
+        </div>
+        <div class="col-12">
+            Password:
+            <input type="text" name="Password" value="@Model.Password" placeholder="@Model.Password" />
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div class="col-12">
+            Email:
+            <input type="text" name="Email" value="@Model.Email" placeholder="@Model.Email" />
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div>
+            <label asp-for="FavoriteColor" class="col-2 ">Favorite Color:</label>
+            <div class="col-4">
+                <select asp-for="FavoriteColor" class="mr-6"
+                        asp-items="Html.GetEnumSelectList<Colors>()">
+                </select>
+            </div>
+        </div>
+        <div class="col-12"></div>
+        <input type="submit" value="Add User" />
+    </form>
+        
+
